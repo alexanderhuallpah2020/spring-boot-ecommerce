@@ -1,9 +1,11 @@
 package com.example.ecommerce.backend.infrastructure.config;
 
 import com.example.ecommerce.backend.application.CategoryService;
+import com.example.ecommerce.backend.application.OrderService;
 import com.example.ecommerce.backend.application.ProductService;
 import com.example.ecommerce.backend.application.UserService;
 import com.example.ecommerce.backend.domain.port.ICategoryRepository;
+import com.example.ecommerce.backend.domain.port.IOrderRepository;
 import com.example.ecommerce.backend.domain.port.IProductRepository;
 import com.example.ecommerce.backend.domain.port.IUserRepository;
 import org.springframework.context.annotation.Bean;
@@ -24,5 +26,10 @@ public class BeanConfiguration {
     @Bean
     public ProductService productService(IProductRepository iProductRepository){
         return  new ProductService(iProductRepository);
+    }
+
+    @Bean
+    public OrderService orderService(IOrderRepository iOrderRepository){
+        return new OrderService(iOrderRepository);
     }
 }
